@@ -21,7 +21,6 @@ export class AdminGuard implements CanActivate {
 
     // Buscamos el usuario en la base de datos.
     const user = await this.usersService.findById(request.userId);
-    console.log('ADMIN GUARD:', user?.email, user?.role);
 
     if (!user) {
       throw new UnauthorizedException('El usuario ya no existe');
